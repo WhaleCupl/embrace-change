@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        background: #050608;
+        overflow: hidden;
+        font-family: "Inter", system-ui, sans-serif;
+        color: #eceef2;
+        -webkit-font-smoothing: antialiased;
+      }
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        padding: 72px 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.06) 1px,
+            transparent 1px
+          );
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(
+          ellipse 80% 70% at 50% 50%,
+          black 20%,
+          transparent 95%
+        );
+        mask-image: radial-gradient(
+          ellipse 80% 70% at 50% 50%,
+          black 20%,
+          transparent 95%
+        );
+      }
+      .glow {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(
+          circle,
+          rgba(121, 255, 225, 0.12) 0%,
+          rgba(167, 139, 250, 0.05) 35%,
+          transparent 70%
+        );
+        filter: blur(60px);
+        pointer-events: none;
+      }
+      .top {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 18px;
+        letter-spacing: 0.06em;
+        color: #8a8f9a;
+        text-transform: uppercase;
+      }
+      .top .brand {
+        font-family: "Space Grotesk", sans-serif;
+        color: #eceef2;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        text-transform: none;
+      }
+      .top .brand .mark {
+        color: #79ffe1;
+        margin-right: 10px;
+      }
+      .top .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .top .status .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #79ffe1;
+        box-shadow: 0 0 16px #79ffe1;
+      }
+      .center {
+        position: relative;
+        z-index: 2;
+      }
+      .eyebrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 16px;
+        letter-spacing: 0.4em;
+        color: #8a8f9a;
+        text-transform: uppercase;
+        margin-bottom: 32px;
+      }
+      .eyebrow .sq {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: #79ffe1;
+        margin: 0 16px 3px;
+        vertical-align: middle;
+      }
+      h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 88px;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        color: #eceef2;
+      }
+      h1 .line {
+        display: block;
+      }
+      .bottom {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+      .listing {
+        display: inline-flex;
+        align-items: center;
+        gap: 22px;
+        padding: 18px 26px;
+        border: 1px solid rgba(121, 255, 225, 0.35);
+        border-radius: 8px;
+        background: linear-gradient(
+          180deg,
+          rgba(121, 255, 225, 0.08) 0%,
+          rgba(121, 255, 225, 0.02) 100%
+        );
+        font-family: "JetBrains Mono", monospace;
+        box-shadow:
+          0 0 0 1px rgba(121, 255, 225, 0.05),
+          0 0 50px rgba(121, 255, 225, 0.12);
+      }
+      .listing .exchange {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.24em;
+        color: #c4c8d0;
+      }
+      .listing .colon {
+        color: #3a3f4a;
+        font-size: 20px;
+      }
+      .listing .symbol {
+        font-size: 34px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        color: #79ffe1;
+        text-shadow: 0 0 24px rgba(121, 255, 225, 0.55);
+      }
+      .meta {
+        text-align: right;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        letter-spacing: 0.18em;
+        color: #8a8f9a;
+        text-transform: uppercase;
+        line-height: 1.8;
+      }
+      .meta .cik {
+        color: #c4c8d0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="grid"></div>
+      <div class="glow"></div>
+
+      <div class="top">
+        <div class="brand"><span class="mark">◆</span>Embrace Change Acquisition Corp.</div>
+        <div class="status"><span class="dot"></span>2026</div>
+      </div>
+
+      <div class="center">
+        <div class="eyebrow">
+          SPAC<span class="sq"></span>DELAWARE<span class="sq"></span>2026
+        </div>
+        <h1>
+          <span class="line">Embrace Change</span>
+          <span class="line">Acquisition Corp.</span>
+        </h1>
+      </div>
+
+      <div class="bottom">
+        <div class="listing">
+          <span class="exchange">NASDAQ</span>
+          <span class="colon">:</span>
+          <span class="symbol">EMCG</span>
+        </div>
+        <div class="meta">
+          <div>Blank Check · Sector-Agnostic</div>
+          <div class="cik">CIK 0001869601</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
