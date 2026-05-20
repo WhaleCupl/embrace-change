@@ -50,15 +50,18 @@
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
         font-feature-settings: "kern", "liga";
-        padding: 0 5vw;
         user-select: none;
       }
 
       .wordmark {
         text-align: center;
-        font-size: clamp(28px, 7vw, 120px);
         letter-spacing: -0.01em;
         white-space: nowrap;
+        font-size: 80px; /* placeholder; replaced by JS auto-fit */
+      }
+
+      .wordmark.wrap {
+        white-space: normal;
       }
 
       .wordmark .typed {
@@ -82,13 +85,6 @@
       @media (prefers-reduced-motion: reduce) {
         .wordmark .cursor { animation: none; }
       }
-
-      @media (max-width: 640px) {
-        .wordmark {
-          white-space: normal;
-          font-size: clamp(28px, 10vw, 60px);
-        }
-      }
     </style>
   </head>
   <body>
@@ -98,10 +94,42 @@
     <script>
       (function () {
         var text = "Embrace Change Acquisition Corp.";
-        var typed = document.querySelector(".wordmark .typed");
+        var wm = document.querySelector(".wordmark");
+        var typed = wm.querySelector(".typed");
         var startDelay = 1600;
         var letterInterval = 130;
         var wordPause = 380;
+
+        // Measure natural text width at a baseline font-size to support auto-fit.
+        var BASE = 100;
+        var naturalWidth = 0;
+        function measure() {
+          var savedFont = wm.style.fontSize;
+          var savedText = typed.textContent;
+          var savedWrap = wm.classList.contains("wrap");
+          wm.classList.remove("wrap");
+          wm.style.fontSize = BASE + "px";
+          typed.textContent = text;
+          naturalWidth = typed.scrollWidth;
+          typed.textContent = savedText;
+          wm.style.fontSize = savedFont;
+          if (savedWrap) wm.classList.add("wrap");
+        }
+
+        function fit() {
+          if (!naturalWidth) measure();
+          var target = window.innerWidth * 0.85;
+          var size = (target / naturalWidth) * BASE;
+          if (size > 160) size = 160;
+          // On very narrow screens, allow wrapping and use a readable size.
+          if (size < 28) {
+            wm.classList.add("wrap");
+            size = Math.max(30, Math.min(window.innerWidth * 0.09, 52));
+          } else {
+            wm.classList.remove("wrap");
+          }
+          wm.style.fontSize = size + "px";
+        }
 
         function type() {
           var t = startDelay;
@@ -117,10 +145,17 @@
           }
         }
 
+        function init() {
+          fit();
+          type();
+        }
+
+        window.addEventListener("resize", fit);
+
         if (document.fonts && document.fonts.ready) {
-          document.fonts.ready.then(type);
+          document.fonts.ready.then(init);
         } else {
-          window.addEventListener("load", type);
+          window.addEventListener("load", init);
         }
       })();
     </script>
