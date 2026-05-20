@@ -5,21 +5,31 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
     <meta name="color-scheme" content="light" />
     <title>Embrace Change Acquisition Corp.</title>
-    <meta name="description" content="Embrace Change Acquisition Corp." />
-    <meta name="theme-color" content="#fafafa" />
+    <meta
+      name="description"
+      content="Embrace Change Acquisition Corp. is a blank check company formed for the purpose of effecting a business combination with one or more businesses."
+    />
+    <meta name="theme-color" content="#ffffff" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
     <style>
       :root {
-        --color-primary: #000000;
-        --color-background: #fafafa;
-        --font-family-primary: "EB Garamond", "Times New Roman", Times, serif;
+        --color-ink: #0a0a0a;
+        --color-ink-soft: #4a4a4a;
+        --color-muted: #8a8a8a;
+        --color-rule: #e5e5e5;
+        --color-bg: #ffffff;
+        --color-accent: #0a0a0a;
+        --font-sans:
+          "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --container: 1120px;
       }
 
       *,
@@ -30,135 +40,577 @@
         box-sizing: border-box;
       }
 
-      html,
-      body {
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-        background-color: var(--color-background);
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
       }
 
       body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--color-primary);
-        font-family: var(--font-family-primary);
+        background: var(--color-bg);
+        color: var(--color-ink);
+        font-family: var(--font-sans);
         font-weight: 400;
-        line-height: 1.2;
+        font-size: 17px;
+        line-height: 1.6;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
-        font-feature-settings: "kern", "liga";
-        user-select: none;
+        font-feature-settings: "kern", "liga", "ss01";
       }
 
-      .wordmark {
-        text-align: center;
-        letter-spacing: -0.01em;
-        white-space: nowrap;
-        font-size: 80px; /* placeholder; replaced by JS auto-fit */
+      a {
+        color: inherit;
+        text-decoration: none;
       }
 
-      .wordmark.wrap {
-        white-space: normal;
+      .container {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 32px;
       }
 
-      .wordmark .typed {
-        white-space: pre;
+      @media (max-width: 640px) {
+        .container {
+          padding: 0 24px;
+        }
       }
 
-      /* Hidden phantom used only for measuring the full text width. */
-      .wordmark .phantom {
-        visibility: hidden;
-        position: absolute;
-        pointer-events: none;
-        white-space: pre;
-        font-size: 100px; /* fixed baseline for measurement */
+      /* ---------- Nav ---------- */
+      .nav {
+        position: sticky;
         top: 0;
-        left: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: saturate(180%) blur(12px);
+        -webkit-backdrop-filter: saturate(180%) blur(12px);
+        border-bottom: 1px solid var(--color-rule);
       }
 
-      .wordmark .cursor {
-        display: inline-block;
-        width: 0.06em;
-        height: 0.85em;
-        background-color: var(--color-primary);
-        vertical-align: -0.08em;
-        animation: cursor-blink 1.1s steps(1, end) infinite;
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
       }
 
-      @keyframes cursor-blink {
-        0%, 50% { opacity: 1; }
-        50.01%, 100% { opacity: 0; }
+      .brand {
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        color: var(--color-ink);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .nav-link {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-ink-soft);
+        transition: color 0.15s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-link:hover {
+        color: var(--color-ink);
+      }
+
+      .nav-link .arrow {
+        font-size: 12px;
+        transform: translateY(-1px);
+      }
+
+      /* ---------- Section primitives ---------- */
+      section {
+        padding: 120px 0;
+        border-bottom: 1px solid var(--color-rule);
+      }
+
+      section:last-of-type {
+        border-bottom: none;
+      }
+
+      @media (max-width: 768px) {
+        section {
+          padding: 80px 0;
+        }
+      }
+
+      .eyebrow {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        margin-bottom: 32px;
+      }
+
+      .lede {
+        font-size: 22px;
+        line-height: 1.5;
+        color: var(--color-ink-soft);
+        max-width: 720px;
+      }
+
+      @media (max-width: 640px) {
+        .lede {
+          font-size: 19px;
+        }
+      }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        padding: 140px 0 160px;
+        border-bottom: 1px solid var(--color-rule);
+      }
+
+      .hero h1 {
+        font-size: clamp(40px, 6vw, 80px);
+        line-height: 1.05;
+        letter-spacing: -0.025em;
+        font-weight: 500;
+        max-width: 900px;
+        margin-bottom: 40px;
+      }
+
+      .hero .lede {
+        font-size: clamp(18px, 2vw, 24px);
+        line-height: 1.5;
+        max-width: 760px;
+        margin-bottom: 56px;
+      }
+
+      .hero-meta {
+        display: flex;
+        gap: 48px;
+        flex-wrap: wrap;
+        padding-top: 32px;
+        border-top: 1px solid var(--color-rule);
+        max-width: 760px;
+      }
+
+      .hero-meta dt {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        margin-bottom: 6px;
+      }
+
+      .hero-meta dd {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--color-ink);
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: 80px 0 100px;
+        }
+        .hero-meta {
+          gap: 32px;
+        }
+      }
+
+      /* ---------- Thesis ---------- */
+      .thesis-body {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        gap: 80px;
+      }
+
+      .thesis-body h2 {
+        font-size: clamp(28px, 3vw, 36px);
+        font-weight: 500;
+        letter-spacing: -0.015em;
+        line-height: 1.2;
+      }
+
+      .thesis-body .prose p + p {
+        margin-top: 1.25em;
+      }
+
+      .thesis-body .prose {
+        font-size: 18px;
+        line-height: 1.65;
+        color: var(--color-ink-soft);
+        max-width: 640px;
+      }
+
+      @media (max-width: 900px) {
+        .thesis-body {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      /* ---------- Approach ---------- */
+      .approach-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background: var(--color-rule);
+        border: 1px solid var(--color-rule);
+        margin-top: 56px;
+      }
+
+      .approach-grid > div {
+        background: var(--color-bg);
+        padding: 40px;
+      }
+
+      .approach-grid h3 {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--color-muted);
+        margin-bottom: 16px;
+      }
+
+      .approach-grid p {
+        font-size: 17px;
+        line-height: 1.55;
+        color: var(--color-ink);
+      }
+
+      .approach-headline {
+        font-size: clamp(28px, 3vw, 36px);
+        font-weight: 500;
+        letter-spacing: -0.015em;
+        line-height: 1.2;
+        max-width: 760px;
+      }
+
+      @media (max-width: 700px) {
+        .approach-grid {
+          grid-template-columns: 1fr;
+        }
+        .approach-grid > div {
+          padding: 32px 24px;
+        }
+      }
+
+      /* ---------- Sponsor ---------- */
+      .sponsor-headline {
+        font-size: clamp(28px, 3vw, 36px);
+        font-weight: 500;
+        letter-spacing: -0.015em;
+        line-height: 1.2;
+        max-width: 800px;
+        margin-bottom: 32px;
+      }
+
+      .sponsor p {
+        font-size: 18px;
+        line-height: 1.65;
+        color: var(--color-ink-soft);
+        max-width: 720px;
+      }
+
+      /* ---------- Filings CTA ---------- */
+      .filings-headline {
+        font-size: clamp(28px, 3vw, 36px);
+        font-weight: 500;
+        letter-spacing: -0.015em;
+        line-height: 1.2;
+        max-width: 720px;
+        margin-bottom: 40px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 28px;
+        background: var(--color-ink);
+        color: #fff;
+        border-radius: 999px;
+        font-size: 15px;
+        font-weight: 500;
+        transition:
+          background 0.15s ease,
+          transform 0.15s ease;
+      }
+
+      .button:hover {
+        background: #222;
+      }
+
+      .button .arrow {
+        font-size: 13px;
+        transition: transform 0.15s ease;
+      }
+
+      .button:hover .arrow {
+        transform: translateX(2px) translateY(-1px);
+      }
+
+      .filings-note {
+        font-size: 13px;
+        color: var(--color-muted);
+        margin-top: 24px;
+        max-width: 600px;
+      }
+
+      /* ---------- Footer ---------- */
+      footer {
+        padding: 64px 0 48px;
+        background: var(--color-bg);
+        border-top: 1px solid var(--color-rule);
+      }
+
+      .footer-disclaimer {
+        font-size: 12px;
+        line-height: 1.65;
+        color: var(--color-muted);
+        max-width: 880px;
+        margin-bottom: 40px;
+      }
+
+      .footer-disclaimer strong {
+        color: var(--color-ink-soft);
+        font-weight: 500;
+      }
+
+      .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding-top: 24px;
+        border-top: 1px solid var(--color-rule);
+      }
+
+      .footer-bottom small {
+        font-size: 12px;
+        color: var(--color-muted);
+      }
+
+      /* ---------- Entrance ---------- */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(8px);
+        animation: fade-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+      }
+
+      .fade-in.delay-1 {
+        animation-delay: 0.1s;
+      }
+      .fade-in.delay-2 {
+        animation-delay: 0.25s;
+      }
+      .fade-in.delay-3 {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes fade-in {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .wordmark .cursor { animation: none; }
+        .fade-in {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
       }
     </style>
   </head>
+
   <body>
+    <header class="nav">
+      <div class="container nav-inner">
+        <span class="brand">Embrace Change Acquisition Corp.</span>
+        <nav class="nav-links">
+          <a class="nav-link" href="#thesis">Thesis</a>
+          <a class="nav-link" href="#approach">Approach</a>
+          <a
+            class="nav-link"
+            href="https://www.sec.gov/edgar/browse/?CIK=0001869601"
+            target="_blank"
+            rel="noopener"
+            >SEC Filings <span class="arrow">↗</span></a
+          >
+        </nav>
+      </div>
+    </header>
+
     <main>
-      <h1 class="wordmark"><span class="phantom" aria-hidden="true">Embrace Change Acquisition Corp.</span><span class="typed"></span><span class="cursor" aria-hidden="true"></span></h1>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <h1 class="fade-in">Embrace Change Acquisition Corp.</h1>
+          <p class="lede fade-in delay-1">
+            A blank check company formed for the purpose of effecting a merger,
+            share exchange, asset acquisition, or similar business combination
+            with one or more businesses positioned to lead — not lag — the
+            structural shifts shaping their industries.
+          </p>
+          <dl class="hero-meta fade-in delay-2">
+            <div>
+              <dt>Structure</dt>
+              <dd>Special Purpose Acquisition Company</dd>
+            </div>
+            <div>
+              <dt>Mandate</dt>
+              <dd>Sector-agnostic</dd>
+            </div>
+            <div>
+              <dt>Jurisdiction</dt>
+              <dd>Delaware, United States</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- THESIS -->
+      <section id="thesis">
+        <div class="container">
+          <p class="eyebrow">Thesis</p>
+          <div class="thesis-body">
+            <h2>
+              Durable value is built by businesses willing to change before they
+              have to.
+            </h2>
+            <div class="prose">
+              <p>
+                We believe the most enduring public companies of the next decade
+                will not be those that resist disruption, but those that
+                metabolize it — businesses whose operating culture, capital
+                discipline, and product judgment allow them to compound through
+                cycles rather than be defined by any single one.
+              </p>
+              <p>
+                Our role as sponsor is to identify a single target whose private
+                trajectory warrants the rigor, transparency, and permanent
+                capital base of the public markets, and to provide a vehicle
+                through which that transition can be executed with integrity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- APPROACH -->
+      <section id="approach">
+        <div class="container">
+          <p class="eyebrow">Approach</p>
+          <h2 class="approach-headline">
+            We evaluate prospective combinations against four enduring criteria.
+          </h2>
+          <div class="approach-grid">
+            <div>
+              <h3>Stage</h3>
+              <p>
+                Established businesses with proven unit economics, defensible
+                market position, and a clear path to durable profitability in
+                the public market context.
+              </p>
+            </div>
+            <div>
+              <h3>Scale</h3>
+              <p>
+                Enterprise values broadly between $750 million and $4 billion,
+                with the operating maturity to sustain quarterly reporting
+                cadence from day one.
+              </p>
+            </div>
+            <div>
+              <h3>Sector</h3>
+              <p>
+                Sector-agnostic, with elevated interest in businesses whose
+                growth is tied to long-term structural change rather than
+                near-term cycles.
+              </p>
+            </div>
+            <div>
+              <h3>Stewardship</h3>
+              <p>
+                Founder- or operator-led teams who view a public listing as a
+                tool for compounding, not a liquidity event — and who welcome
+                the discipline that comes with it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SPONSOR -->
+      <section>
+        <div class="container">
+          <p class="eyebrow">Sponsor</p>
+          <h2 class="sponsor-headline">
+            Backed by operators and investors with cross-cycle experience
+            across public and private markets.
+          </h2>
+          <p>
+            The sponsor team brings complementary expertise across capital
+            markets execution, corporate governance, and operational scaling.
+            Detailed biographies of the sponsor and its affiliates are
+            available in the company's public filings.
+          </p>
+        </div>
+      </section>
+
+      <!-- FILINGS -->
+      <section>
+        <div class="container">
+          <p class="eyebrow">Public Filings</p>
+          <h2 class="filings-headline">
+            All registration statements, periodic reports, and current reports
+            are available on the SEC's EDGAR system.
+          </h2>
+          <a
+            class="button"
+            href="https://www.sec.gov/edgar/browse/?CIK=0001869601"
+            target="_blank"
+            rel="noopener"
+          >
+            View filings on SEC EDGAR <span class="arrow">↗</span>
+          </a>
+          <p class="filings-note">
+            CIK 0001869601 · Filings are made available without charge by the
+            U.S. Securities and Exchange Commission.
+          </p>
+        </div>
+      </section>
     </main>
-    <script>
-      (function () {
-        var text = "Embrace Change Acquisition Corp.";
-        var wm = document.querySelector(".wordmark");
-        var typed = wm.querySelector(".typed");
-        var startDelay = 1600;
-        var letterInterval = 130;
-        var wordPause = 380;
 
-        // Hidden phantom span holds the full text at a fixed 100px font-size.
-        // Its width is a reliable measurement of how wide the text would be.
-        var BASE = 100;
-        var phantom = wm.querySelector(".phantom");
-
-        function fit() {
-          var naturalWidth = phantom.getBoundingClientRect().width;
-          if (!naturalWidth) return; // fonts not ready yet
-          var target = window.innerWidth * 0.85;
-          var size = (target / naturalWidth) * BASE;
-          if (size > 160) size = 160;
-          // On very narrow screens, allow wrapping and use a readable size.
-          if (size < 28) {
-            wm.classList.add("wrap");
-            size = Math.max(30, Math.min(window.innerWidth * 0.09, 52));
-          } else {
-            wm.classList.remove("wrap");
-          }
-          wm.style.fontSize = size + "px";
-        }
-
-        function type() {
-          var t = startDelay;
-          for (var i = 0; i < text.length; i++) {
-            var ch = text.charAt(i);
-            (function (c, time) {
-              setTimeout(function () {
-                typed.append(c);
-              }, time);
-            })(ch, t);
-            t += letterInterval;
-            if (ch === " ") t += wordPause;
-          }
-        }
-
-        function init() {
-          fit();
-          type();
-        }
-
-        window.addEventListener("resize", fit);
-
-        if (document.fonts && document.fonts.ready) {
-          document.fonts.ready.then(init);
-        } else {
-          window.addEventListener("load", init);
-        }
-      })();
-    </script>
+    <footer>
+      <div class="container">
+        <p class="footer-disclaimer">
+          <strong>Forward-Looking Statements.</strong> This website contains
+          certain statements that may be deemed to be "forward-looking
+          statements" within the meaning of the U.S. federal securities laws.
+          Such statements are based on the current expectations and beliefs of
+          management and are subject to a number of risks, uncertainties, and
+          assumptions that could cause actual results to differ materially
+          from those described. Embrace Change Acquisition Corp. undertakes no
+          obligation to update any forward-looking statement, whether as a
+          result of new information, future events, or otherwise, except as
+          required by applicable law. This communication does not constitute
+          an offer to sell or a solicitation of an offer to buy any
+          securities.
+        </p>
+        <div class="footer-bottom">
+          <small>© 2026 Embrace Change Acquisition Corp. All rights reserved.</small>
+          <small>CIK 0001869601</small>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
