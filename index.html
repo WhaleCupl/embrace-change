@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <title>Embrace Change Acquisition Corp.</title>
+    <meta name="description" content="Embrace Change Acquisition Corp." />
+    <meta name="theme-color" content="#fafafa" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --color-primary: #000000;
+        --color-background: #fafafa;
+        --font-family-primary: "EB Garamond", "Times New Roman", Times, serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background-color: var(--color-background);
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary);
+        font-family: var(--font-family-primary);
+        font-weight: 400;
+        line-height: 1.2;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        font-feature-settings: "kern", "liga";
+        padding: 0 5vw;
+        user-select: none;
+      }
+
+      .wordmark {
+        text-align: center;
+        font-size: clamp(28px, 7vw, 120px);
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+
+      .wordmark .typed {
+        white-space: pre;
+      }
+
+      .wordmark .cursor {
+        display: inline-block;
+        width: 0.06em;
+        height: 0.85em;
+        background-color: var(--color-primary);
+        vertical-align: -0.08em;
+        animation: cursor-blink 1.1s steps(1, end) infinite;
+      }
+
+      @keyframes cursor-blink {
+        0%, 50% { opacity: 1; }
+        50.01%, 100% { opacity: 0; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .wordmark .cursor { animation: none; }
+      }
+
+      @media (max-width: 640px) {
+        .wordmark {
+          white-space: normal;
+          font-size: clamp(28px, 10vw, 60px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 class="wordmark"><span class="typed"></span><span class="cursor" aria-hidden="true"></span></h1>
+    </main>
+    <script>
+      (function () {
+        var text = "Embrace Change Acquisition Corp.";
+        var typed = document.querySelector(".wordmark .typed");
+        var startDelay = 1600;
+        var letterInterval = 130;
+        var wordPause = 380;
+
+        function type() {
+          var t = startDelay;
+          for (var i = 0; i < text.length; i++) {
+            var ch = text.charAt(i);
+            (function (c, time) {
+              setTimeout(function () {
+                typed.append(c);
+              }, time);
+            })(ch, t);
+            t += letterInterval;
+            if (ch === " ") t += wordPause;
+          }
+        }
+
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(type);
+        } else {
+          window.addEventListener("load", type);
+        }
+      })();
+    </script>
+  </body>
+</html>
