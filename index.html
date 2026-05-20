@@ -68,6 +68,17 @@
         white-space: pre;
       }
 
+      /* Hidden phantom used only for measuring the full text width. */
+      .wordmark .phantom {
+        visibility: hidden;
+        position: absolute;
+        pointer-events: none;
+        white-space: pre;
+        font-size: 100px; /* fixed baseline for measurement */
+        top: 0;
+        left: 0;
+      }
+
       .wordmark .cursor {
         display: inline-block;
         width: 0.06em;
@@ -89,7 +100,7 @@
   </head>
   <body>
     <main>
-      <h1 class="wordmark"><span class="typed"></span><span class="cursor" aria-hidden="true"></span></h1>
+      <h1 class="wordmark"><span class="phantom" aria-hidden="true">Embrace Change Acquisition Corp.</span><span class="typed"></span><span class="cursor" aria-hidden="true"></span></h1>
     </main>
     <script>
       (function () {
@@ -100,24 +111,14 @@
         var letterInterval = 130;
         var wordPause = 380;
 
-        // Measure natural text width at a baseline font-size to support auto-fit.
+        // Hidden phantom span holds the full text at a fixed 100px font-size.
+        // Its width is a reliable measurement of how wide the text would be.
         var BASE = 100;
-        var naturalWidth = 0;
-        function measure() {
-          var savedFont = wm.style.fontSize;
-          var savedText = typed.textContent;
-          var savedWrap = wm.classList.contains("wrap");
-          wm.classList.remove("wrap");
-          wm.style.fontSize = BASE + "px";
-          typed.textContent = text;
-          naturalWidth = typed.scrollWidth;
-          typed.textContent = savedText;
-          wm.style.fontSize = savedFont;
-          if (savedWrap) wm.classList.add("wrap");
-        }
+        var phantom = wm.querySelector(".phantom");
 
         function fit() {
-          if (!naturalWidth) measure();
+          var naturalWidth = phantom.getBoundingClientRect().width;
+          if (!naturalWidth) return; // fonts not ready yet
           var target = window.innerWidth * 0.85;
           var size = (target / naturalWidth) * BASE;
           if (size > 160) size = 160;
