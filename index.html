@@ -519,6 +519,194 @@
         color: var(--ink);
       }
 
+      /* ---------- offering snapshot ---------- */
+      .snapshot-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+        margin-top: 56px;
+      }
+      .snapshot-tile {
+        background: var(--bg);
+        padding: 32px 28px 30px;
+        position: relative;
+        transition: background 0.3s ease;
+      }
+      .snapshot-tile:hover {
+        background: rgba(121, 255, 225, 0.02);
+      }
+      .snapshot-tile .label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--dim);
+        margin-bottom: 18px;
+      }
+      .snapshot-tile .value {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(28px, 3vw, 42px);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        line-height: 1;
+        margin-bottom: 12px;
+      }
+      .snapshot-tile .value .unit {
+        font-size: 0.55em;
+        font-weight: 500;
+        color: var(--dim);
+        margin-left: 2px;
+      }
+      .snapshot-tile .sub {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        color: var(--dim);
+        text-transform: uppercase;
+      }
+      .snapshot-unit-line {
+        margin-top: 28px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        color: var(--dim);
+        text-transform: uppercase;
+      }
+      .snapshot-unit-line .accent-num {
+        color: var(--ink-soft);
+        font-weight: 500;
+      }
+      @media (max-width: 900px) {
+        .snapshot-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .snapshot-tile {
+          padding: 24px 20px 22px;
+        }
+      }
+
+      /* ---------- edge ---------- */
+      .edge-headline {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(28px, 3vw, 40px);
+        font-weight: 400;
+        letter-spacing: -0.015em;
+        line-height: 1.15;
+        max-width: 800px;
+      }
+      .edge-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 56px;
+        margin-top: 64px;
+        padding-top: 56px;
+        border-top: 1px solid var(--line);
+      }
+      .edge-item {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .edge-item .num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        color: var(--accent-2);
+        text-transform: uppercase;
+      }
+      .edge-item h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1.25;
+        letter-spacing: -0.005em;
+        color: var(--ink);
+      }
+      .edge-item p {
+        font-size: 15px;
+        line-height: 1.65;
+        color: var(--ink-soft);
+      }
+      @media (max-width: 900px) {
+        .edge-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      /* ---------- leadership ---------- */
+      .leadership-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        margin-top: 56px;
+      }
+      .leadership-item {
+        padding-top: 28px;
+        border-top: 1px solid var(--line-strong);
+      }
+      .leadership-item .role-meta {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .leadership-item h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        margin-bottom: 22px;
+      }
+      .leadership-item p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: var(--ink-soft);
+      }
+      @media (max-width: 760px) {
+        .leadership-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      /* ---------- underwriters ---------- */
+      .underwriters {
+        margin-top: 48px;
+        padding-top: 32px;
+        border-top: 1px solid var(--line);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        color: var(--dim);
+        text-transform: uppercase;
+      }
+      .underwriters .label {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--dim);
+      }
+      .underwriters .firms {
+        color: var(--ink-soft);
+        font-weight: 500;
+        letter-spacing: 0.12em;
+      }
+      .underwriters .firms .sep {
+        color: var(--faint);
+        margin: 0 14px;
+      }
+
       /* ---------- thesis ---------- */
       .thesis-body {
         display: grid;
@@ -820,8 +1008,9 @@
               <span class="pulse" aria-hidden="true"></span>
               <span class="label-long">NASDAQ&nbsp;·&nbsp;</span><span class="status-symbol">EMCG</span>
             </span>
-            <a class="nav-link optional" href="#thesis">Thesis</a>
+            <a class="nav-link optional" href="#offering">Offering</a>
             <a class="nav-link optional" href="#approach">Approach</a>
+            <a class="nav-link optional" href="#leadership">Leadership</a>
             <a
               class="nav-link"
               href="https://www.sec.gov/edgar/browse/?CIK=0001869601"
@@ -914,6 +1103,43 @@
           </div>
         </section>
 
+        <!-- OFFERING SNAPSHOT -->
+        <section id="offering">
+          <div class="container">
+            <div class="eyebrow reveal">
+              OFFERING<span class="sq"></span>KEY<span class="sq"></span>TERMS
+            </div>
+            <div class="snapshot-grid reveal">
+              <div class="snapshot-tile">
+                <div class="label">IPO Size</div>
+                <div class="value">$73.9<span class="unit">M</span></div>
+                <div class="sub">Post Green-Shoe</div>
+              </div>
+              <div class="snapshot-tile">
+                <div class="label">Funds in Trust</div>
+                <div class="value">102.5<span class="unit">%</span></div>
+                <div class="sub">Sponsor-Funded 2.5%</div>
+              </div>
+              <div class="snapshot-tile">
+                <div class="label">Search Period</div>
+                <div class="value">24<span class="unit"> mo</span></div>
+                <div class="sub">12 + 12 Extension</div>
+              </div>
+              <div class="snapshot-tile">
+                <div class="label">Warrant Strike</div>
+                <div class="value">$11.50</div>
+                <div class="sub">Per Ordinary Share</div>
+              </div>
+            </div>
+            <p class="snapshot-unit-line reveal">
+              Each unit · <span class="accent-num">1 Ordinary Share</span>
+              + <span class="accent-num">1 Warrant</span>
+              + <span class="accent-num">1/8 Right</span>
+              · $10 per unit · 7.39M units issued
+            </p>
+          </div>
+        </section>
+
         <!-- THESIS -->
         <section id="thesis">
           <div class="container">
@@ -940,6 +1166,41 @@
                   permanent capital base of the public markets, and to provide
                   a vehicle through which that transition can be executed with
                   integrity.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDGE -->
+        <section id="edge">
+          <div class="container">
+            <div class="eyebrow reveal">
+              EDGE<span class="sq"></span>SPONSOR<span class="sq"></span>DIFFERENTIATION
+            </div>
+            <h2 class="edge-headline reveal">
+              Three traits that make this combination vehicle distinctive.
+            </h2>
+            <div class="edge-grid reveal">
+              <div class="edge-item">
+                <div class="num">01 — Mandate</div>
+                <h3>No predefined sector.</h3>
+                <p>
+                  Among the small set of SPACs in market with no investment-vertical restriction. The mandate spans new energy, digital assets, biopharmaceuticals, consumer, and beyond — chosen on the merits of the target, not the label of the category.
+                </p>
+              </div>
+              <div class="edge-item">
+                <div class="num">02 — Track Record</div>
+                <h3>Operator experience in U.S. listings.</h3>
+                <p>
+                  The sponsor team has led multiple U.S. listings across TMT — IPOs, SPACs, and DeSPACs — and operates a standing network of counsel, auditors, and brokers prepared to take a target public efficiently.
+                </p>
+              </div>
+              <div class="edge-item">
+                <div class="num">03 — Structure</div>
+                <h3>Simple decisions. Flexible structure.</h3>
+                <p>
+                  A compact sponsor structure produces fast decisions. The deal structure itself is tunable — built to align with the target's perspective on valuation, dilution, and lock-up rather than impose a template.
                 </p>
               </div>
             </div>
@@ -998,6 +1259,44 @@
           </div>
         </section>
 
+        <!-- LEADERSHIP -->
+        <section id="leadership">
+          <div class="container">
+            <div class="eyebrow reveal">
+              LEADERSHIP<span class="sq"></span>PRINCIPAL<span class="sq"></span>OFFICERS
+            </div>
+            <h2 class="edge-headline reveal">
+              Two principal officers responsible for strategy, capital, and
+              execution.
+            </h2>
+            <div class="leadership-grid reveal">
+              <div class="leadership-item">
+                <div class="role-meta">Office of the CEO</div>
+                <h3>Chief Executive Officer</h3>
+                <p>
+                  Over a decade in China's TMT sector across corporate
+                  development, capital markets, and early-stage investing. Has
+                  served in senior corporate-governance roles at a Chinese
+                  internet company listed in the U.S. public markets, where
+                  the responsibilities spanned company strategy and capital
+                  markets execution. Holds a bachelor's degree in law.
+                </p>
+              </div>
+              <div class="leadership-item">
+                <div class="role-meta">Office of the CFO</div>
+                <h3>Chief Financial Officer</h3>
+                <p>
+                  Two decades in finance and capital markets, with senior
+                  positions across leading Chinese commercial banks and an
+                  international banking institution. Currently leads finance
+                  for a Chinese media and content company. Holds a master's
+                  degree in international finance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- FILINGS -->
         <section>
           <div class="container">
@@ -1020,6 +1319,15 @@
               </div>
               <span class="cta-card-arrow" aria-hidden="true">↗</span>
             </a>
+            <div class="underwriters reveal">
+              <span class="label">Underwriters of record</span>
+              <span class="firms"
+                >EF Hutton, a division of Benchmark Investments, LLC<span
+                  class="sep"
+                  >·</span
+                >US Tiger Securities, Inc.</span
+              >
+            </div>
           </div>
         </section>
       </main>
