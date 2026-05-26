@@ -12,7 +12,7 @@
       name="description"
       content="Embrace Change Acquisition Corp. — a blank check company formed for the purpose of effecting a business combination with one or more businesses."
     />
-    <meta name="theme-color" content="#050608" />
+    <meta name="theme-color" content="#0f0f12" />
 
     <!-- Open Graph / social share -->
     <meta property="og:type" content="website" />
@@ -35,7 +35,7 @@
 
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050608'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Space Grotesk, Inter, sans-serif' font-weight='400' font-size='17' fill='%2379ffe1'%3EE%3C/text%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f0f12'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Space Grotesk, Inter, sans-serif' font-weight='400' font-size='17' fill='%237fc4a8'%3EE%3C/text%3E%3C/svg%3E"
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,16 +47,16 @@
 
     <style>
       :root {
-        --bg: #050608;
-        --bg-soft: #0a0c10;
-        --ink: #eceef2;
-        --ink-soft: #c4c8d0;
-        --dim: #8a8f9a;
+        --bg: #0f0f12;
+        --bg-soft: #16161a;
+        --ink: #f0f0f0;
+        --ink-soft: #b0b4bc;
+        --dim: #888d96;
         --faint: #3a3f4a;
-        --accent: #79ffe1;
-        --accent-2: #a78bfa;
-        --line: rgba(255, 255, 255, 0.06);
-        --line-strong: rgba(255, 255, 255, 0.1);
+        --accent: #7fc4a8;
+        --accent-2: #9986d4;
+        --line: rgba(255, 255, 255, 0.08);
+        --line-strong: rgba(255, 255, 255, 0.14);
         --container: 1180px;
       }
 
@@ -134,9 +134,9 @@
         opacity: calc(0.22 + 0.78 * var(--g));
         box-shadow:
           0 0 calc(2px + 12px * var(--g))
-            rgba(121, 255, 225, calc(0.4 + 0.5 * var(--g))),
+            rgba(127, 196, 168, calc(0.4 + 0.5 * var(--g))),
           0 0 calc(24px * var(--g))
-            rgba(167, 139, 250, calc(0.55 * var(--g)));
+            rgba(153, 134, 212, calc(0.55 * var(--g)));
         animation: drift var(--d) ease-in-out infinite alternate;
         animation-delay: var(--delay);
         will-change: transform, opacity;
@@ -185,7 +185,7 @@
         position: sticky;
         top: 0;
         z-index: 20;
-        background: rgba(5, 6, 8, 0.7);
+        background: rgba(15, 15, 18, 0.7);
         backdrop-filter: saturate(180%) blur(12px);
         -webkit-backdrop-filter: saturate(180%) blur(12px);
         border-bottom: 1px solid var(--line);
@@ -377,9 +377,9 @@
         );
         text-shadow:
           0 0 calc(20px * var(--g))
-            rgba(121, 255, 225, calc(0.7 * var(--g))),
+            rgba(127, 196, 168, calc(0.7 * var(--g))),
           0 0 calc(48px * var(--g))
-            rgba(167, 139, 250, calc(0.45 * var(--g)));
+            rgba(153, 134, 212, calc(0.45 * var(--g)));
         transition:
           color 0.25s ease-out,
           text-shadow 0.25s ease-out;
@@ -402,18 +402,18 @@
         align-items: center;
         gap: 18px;
         padding: 14px 22px;
-        border: 1px solid rgba(121, 255, 225, 0.28);
+        border: 1px solid rgba(127, 196, 168, 0.28);
         border-radius: 6px;
         background:
           linear-gradient(
             180deg,
-            rgba(121, 255, 225, 0.06) 0%,
-            rgba(121, 255, 225, 0.02) 100%
+            rgba(127, 196, 168, 0.06) 0%,
+            rgba(127, 196, 168, 0.02) 100%
           );
         font-family: "JetBrains Mono", monospace;
         box-shadow:
-          0 0 0 1px rgba(121, 255, 225, 0.04),
-          0 0 40px rgba(121, 255, 225, 0.08);
+          0 0 0 1px rgba(127, 196, 168, 0.04),
+          0 0 40px rgba(127, 196, 168, 0.08);
         opacity: 0;
         animation: fade-in 1.4s ease 0.95s forwards;
       }
@@ -426,7 +426,7 @@
       .listing-badge .lb-rail {
         width: 1px;
         height: 22px;
-        background: rgba(121, 255, 225, 0.22);
+        background: rgba(127, 196, 168, 0.22);
       }
       .listing-badge .lb-exchange {
         font-size: 13px;
@@ -445,7 +445,7 @@
         font-weight: 500;
         letter-spacing: 0.08em;
         color: var(--accent);
-        text-shadow: 0 0 20px rgba(121, 255, 225, 0.45);
+        text-shadow: 0 0 20px rgba(127, 196, 168, 0.45);
       }
       .listing-badge .lb-status {
         display: inline-flex;
@@ -482,7 +482,7 @@
       .hero-lede .accent {
         color: var(--accent-2);
         font-weight: 400;
-        text-shadow: 0 0 18px rgba(167, 139, 250, 0.35);
+        text-shadow: 0 0 18px rgba(153, 134, 212, 0.35);
       }
 
       .hero-meta {
@@ -535,7 +535,7 @@
         transition: background 0.3s ease;
       }
       .snapshot-tile:hover {
-        background: rgba(121, 255, 225, 0.02);
+        background: rgba(127, 196, 168, 0.02);
       }
       .snapshot-tile .label {
         font-family: "JetBrains Mono", monospace;
@@ -726,7 +726,7 @@
       }
       .thesis-body h2 .accent {
         color: var(--accent-2);
-        text-shadow: 0 0 24px rgba(167, 139, 250, 0.35);
+        text-shadow: 0 0 24px rgba(153, 134, 212, 0.35);
       }
 
       .prose {
@@ -785,10 +785,10 @@
           transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
       }
       .approach-card:hover {
-        background: rgba(121, 255, 225, 0.02);
+        background: rgba(127, 196, 168, 0.02);
       }
       .approach-card:hover::before {
-        -webkit-text-stroke-color: rgba(121, 255, 225, 0.16);
+        -webkit-text-stroke-color: rgba(127, 196, 168, 0.16);
         transform: translate(-4px, -4px);
       }
 
@@ -851,8 +851,8 @@
         background:
           linear-gradient(
             180deg,
-            rgba(121, 255, 225, 0.04) 0%,
-            rgba(121, 255, 225, 0.01) 100%
+            rgba(127, 196, 168, 0.04) 0%,
+            rgba(127, 196, 168, 0.01) 100%
           );
         max-width: 720px;
         transition:
@@ -867,12 +867,12 @@
         background:
           linear-gradient(
             180deg,
-            rgba(121, 255, 225, 0.08) 0%,
-            rgba(121, 255, 225, 0.02) 100%
+            rgba(127, 196, 168, 0.08) 0%,
+            rgba(127, 196, 168, 0.02) 100%
           );
         box-shadow:
-          0 0 0 1px rgba(121, 255, 225, 0.1),
-          0 0 56px rgba(121, 255, 225, 0.15);
+          0 0 0 1px rgba(127, 196, 168, 0.1),
+          0 0 56px rgba(127, 196, 168, 0.15);
         transform: translateY(-2px);
       }
       .cta-card-meta {
@@ -900,7 +900,7 @@
       }
       .cta-card:hover .cta-card-arrow {
         transform: translate(4px, -4px);
-        text-shadow: 0 0 24px rgba(121, 255, 225, 0.6);
+        text-shadow: 0 0 24px rgba(127, 196, 168, 0.6);
       }
       @media (max-width: 640px) {
         .cta-card {
