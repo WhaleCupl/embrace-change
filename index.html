@@ -74,10 +74,11 @@
       html {
         scroll-behavior: smooth;
         -webkit-text-size-adjust: 100%;
+        background-color: var(--bg-soft);
       }
 
       body {
-        background: var(--bg);
+        background: transparent;
         color: var(--ink);
         font-family: "Inter", system-ui, sans-serif;
         font-weight: 400;
@@ -102,9 +103,9 @@
 
       body::before {
         --grid-gap: 4px;
-        --grid-minor: #252f3d08;
-        --grid-major: #252f3d12;
-        --grid-cross: #252f3d1d;
+        --grid-minor: hsl(218 60% 80% / 0.025);
+        --grid-major: hsl(218 60% 80% / 0.055);
+        --grid-cross: hsl(218 60% 80% / 0.11);
 
         background-color: var(--bg);
         background-image:
@@ -140,7 +141,7 @@
       body::after {
         background: linear-gradient(
           to bottom,
-          #ebe7e426,
+          #0d11161f,
           var(--bg) 92%
         );
       }
