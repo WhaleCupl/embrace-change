@@ -12,7 +12,7 @@
       name="description"
       content="Embrace Change Acquisition Corp. — a blank check company formed for the purpose of effecting a business combination with one or more businesses."
     />
-    <meta name="theme-color" content="#F7F5EF" />
+    <meta name="theme-color" content="#ebe7e4" />
 
     <!-- Open Graph / social share -->
     <meta property="og:type" content="website" />
@@ -35,7 +35,7 @@
 
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231B3A6B'/%3E%3Cstop offset='1' stop-color='%233D6BB8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' fill='url(%23g)'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Space Grotesk, Inter, sans-serif' font-weight='600' font-size='17' fill='%23ffffff'%3EE%3C/text%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234b607c'/%3E%3Cstop offset='1' stop-color='%236a9fcc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' fill='url(%23g)'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Space Grotesk, Inter, sans-serif' font-weight='600' font-size='17' fill='%23ffffff'%3EE%3C/text%3E%3C/svg%3E"
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,21 +47,21 @@
 
     <style>
       :root {
-        --bg: #ffffff;
-        --bg-soft: #f5f5f3;
-        --ink: #0a0e1a;
-        --ink-soft: #3a3f4a;
-        --dim: #6e7785;
-        --faint: #d4d7dd;
-        --accent: #0a2e5c;
-        --accent-2: #1b4a8a;
-        --accent-rgb: 10, 46, 92;
-        --accent-2-rgb: 27, 74, 138;
-        --line: rgba(0, 0, 0, 0.09);
-        --line-strong: rgba(0, 0, 0, 0.16);
-        --footer-bg: #0a0e1a;
-        --footer-ink: #c9ced8;
-        --footer-dim: #6e7785;
+        --bg: #ebe7e4;
+        --bg-soft: #f3f2f0;
+        --ink: #252f3d;
+        --ink-soft: #384251;
+        --dim: #5c5752;
+        --faint: #8b847d;
+        --accent: #4b607c;
+        --accent-2: #844f3b;
+        --accent-rgb: 75, 96, 124;
+        --accent-2-rgb: 132, 79, 59;
+        --line: rgba(37, 47, 61, 0.08);
+        --line-strong: rgba(37, 47, 61, 0.14);
+        --footer-bg: #13110f;
+        --footer-ink: #8b847d;
+        --footer-dim: #5c5650;
         --container: 1180px;
       }
 
@@ -102,9 +102,9 @@
 
       body::before {
         --grid-gap: 4px;
-        --grid-minor: rgba(var(--accent-rgb), 0.018);
-        --grid-major: rgba(var(--accent-rgb), 0.032);
-        --grid-cross: rgba(var(--accent-rgb), 0.06);
+        --grid-minor: #252f3d08;
+        --grid-major: #252f3d12;
+        --grid-cross: #252f3d1d;
 
         background-color: var(--bg);
         background-image:
@@ -140,7 +140,7 @@
       body::after {
         background: linear-gradient(
           to bottom,
-          rgba(var(--accent-rgb), 0.012),
+          #ebe7e426,
           var(--bg) 92%
         );
       }
@@ -199,9 +199,9 @@
         position: sticky;
         top: 0;
         z-index: 20;
-        background: rgba(247, 245, 239, 0.82);
-        backdrop-filter: saturate(160%) blur(12px);
-        -webkit-backdrop-filter: saturate(160%) blur(12px);
+        background: rgba(235, 231, 228, 0.88);
+        backdrop-filter: saturate(120%) blur(14px);
+        -webkit-backdrop-filter: saturate(120%) blur(14px);
         border-bottom: 1px solid var(--line);
       }
 
@@ -745,7 +745,7 @@
       .moments-figure {
         margin: 0;
         position: relative;
-        background-color: #0a0e1a;
+        background-color: #13110f;
         min-height: clamp(640px, 92vh, 1040px);
         display: flex;
         align-items: flex-end;
@@ -770,12 +770,12 @@
         inset: 0;
         background: linear-gradient(
           180deg,
-          rgba(10, 14, 26, 0.0) 0%,
-          rgba(10, 14, 26, 0.0) 45%,
-          rgba(10, 14, 26, 0.35) 62%,
-          rgba(10, 14, 26, 0.78) 78%,
-          rgba(10, 14, 26, 0.95) 90%,
-          rgba(10, 14, 26, 0.98) 100%
+          rgba(19, 17, 15, 0.0) 0%,
+          rgba(19, 17, 15, 0.0) 45%,
+          rgba(19, 17, 15, 0.35) 62%,
+          rgba(19, 17, 15, 0.78) 78%,
+          rgba(19, 17, 15, 0.95) 90%,
+          rgba(19, 17, 15, 0.98) 100%
         );
         pointer-events: none;
       }
@@ -827,14 +827,14 @@
         position: relative;
         width: 100%;
         padding: 56px 0 72px;
-        color: #c9ced8;
+        color: #8b847d;
         z-index: 1;
       }
       .moments-caption::before {
         content: "";
         position: absolute;
         inset: -8px -100vw;
-        background: rgba(10, 14, 26, 0.55);
+        background: rgba(19, 17, 15, 0.55);
         backdrop-filter: blur(14px) saturate(120%);
         -webkit-backdrop-filter: blur(14px) saturate(120%);
         border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -843,15 +843,15 @@
       .moments-caption .eyebrow,
       .moments-caption h2,
       .moments-caption .moments-meta {
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
       }
       .moments-caption .eyebrow {
-        color: rgba(255, 255, 255, 0.7);
-        border-top: 1px solid rgba(255, 255, 255, 0.35);
+        color: rgba(255, 255, 255, 0.55);
+        border-top: 1px solid rgba(255, 255, 255, 0.28);
         margin-bottom: 24px;
       }
       .moments-caption .eyebrow .sq {
-        background: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.55);
       }
       .moments-caption h2 {
         font-family: "Space Grotesk", sans-serif;
@@ -859,7 +859,7 @@
         font-weight: 600;
         letter-spacing: -0.02em;
         line-height: 1.05;
-        color: #ffffff;
+        color: #ebe7e4;
         max-width: 920px;
         margin-bottom: 20px;
       }
@@ -869,12 +869,12 @@
         flex-wrap: wrap;
         margin-top: 32px;
         padding-top: 24px;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         font-family: "JetBrains Mono", monospace;
         font-size: 11px;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 0.5);
       }
       .moments-caption .moments-meta .item .label {
         display: block;
@@ -883,7 +883,7 @@
         color: rgba(255, 255, 255, 0.45);
       }
       .moments-caption .moments-meta .item .value {
-        color: #ffffff;
+        color: #ebe7e4;
         font-weight: 500;
         font-size: 11px;
         letter-spacing: 0.14em;
@@ -1161,8 +1161,8 @@
         font-size: 220px;
         line-height: 0.9;
         color: transparent;
-        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.07);
-        text-stroke: 1px rgba(0, 0, 0, 0.07);
+        -webkit-text-stroke: 1px rgba(37, 47, 61, 0.06);
+        text-stroke: 1px rgba(37, 47, 61, 0.06);
         letter-spacing: -0.04em;
         pointer-events: none;
         transition:
@@ -1307,7 +1307,7 @@
         margin-bottom: 56px;
       }
       .footer-disclaimer strong {
-        color: #ffffff;
+        color: #ebe7e4;
         font-weight: 500;
       }
       .footer-bottom {
@@ -1317,7 +1317,7 @@
         gap: 16px;
         flex-wrap: wrap;
         padding-top: 32px;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
         font-family: "JetBrains Mono", monospace;
         font-size: 10px;
         letter-spacing: 0.16em;
