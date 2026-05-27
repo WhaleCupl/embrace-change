@@ -6,13 +6,13 @@
       name="viewport"
       content="width=device-width,initial-scale=1,viewport-fit=cover"
     />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="dark" />
     <title>Embrace Change Acquisition Corp.</title>
     <meta
       name="description"
       content="Embrace Change Acquisition Corp. — a blank check company formed for the purpose of effecting a business combination with one or more businesses."
     />
-    <meta name="theme-color" content="#ebe7e4" />
+    <meta name="theme-color" content="#0d1116" />
 
     <!-- Open Graph / social share -->
     <meta property="og:type" content="website" />
@@ -47,21 +47,21 @@
 
     <style>
       :root {
-        --bg: #ebe7e4;
-        --bg-soft: #f3f2f0;
-        --ink: #252f3d;
-        --ink-soft: #384251;
-        --dim: #5c5752;
-        --faint: #8b847d;
-        --accent: #4b607c;
-        --accent-2: #844f3b;
-        --accent-rgb: 75, 96, 124;
-        --accent-2-rgb: 132, 79, 59;
-        --line: rgba(37, 47, 61, 0.08);
-        --line-strong: rgba(37, 47, 61, 0.14);
-        --footer-bg: #13110f;
-        --footer-ink: #8b847d;
-        --footer-dim: #5c5650;
+        --bg: #0d1116;
+        --bg-soft: #161d27;
+        --ink: #ebe7e4;
+        --ink-soft: #d5d8db;
+        --dim: #9fa4ab;
+        --faint: #495059;
+        --accent: #6a9fcc;
+        --accent-2: #b86b52;
+        --accent-rgb: 106, 159, 204;
+        --accent-2-rgb: 184, 107, 82;
+        --line: rgba(255, 255, 255, 0.07);
+        --line-strong: rgba(255, 255, 255, 0.12);
+        --footer-bg: #0d1116;
+        --footer-ink: #9fa4ab;
+        --footer-dim: #495059;
         --container: 1180px;
       }
 
@@ -745,7 +745,7 @@
       .moments-figure {
         margin: 0;
         position: relative;
-        background-color: #13110f;
+        background-color: #0d1116;
         min-height: clamp(640px, 92vh, 1040px);
         display: flex;
         align-items: flex-end;
@@ -770,12 +770,12 @@
         inset: 0;
         background: linear-gradient(
           180deg,
-          rgba(19, 17, 15, 0.0) 0%,
-          rgba(19, 17, 15, 0.0) 45%,
-          rgba(19, 17, 15, 0.35) 62%,
-          rgba(19, 17, 15, 0.78) 78%,
-          rgba(19, 17, 15, 0.95) 90%,
-          rgba(19, 17, 15, 0.98) 100%
+          rgba(13, 17, 22, 0.0) 0%,
+          rgba(13, 17, 22, 0.0) 45%,
+          rgba(13, 17, 22, 0.35) 62%,
+          rgba(13, 17, 22, 0.78) 78%,
+          rgba(13, 17, 22, 0.95) 90%,
+          rgba(13, 17, 22, 0.98) 100%
         );
         pointer-events: none;
       }
@@ -827,14 +827,14 @@
         position: relative;
         width: 100%;
         padding: 56px 0 72px;
-        color: #8b847d;
+        color: #9fa4ab;
         z-index: 1;
       }
       .moments-caption::before {
         content: "";
         position: absolute;
         inset: -8px -100vw;
-        background: rgba(19, 17, 15, 0.55);
+        background: rgba(13, 17, 22, 0.55);
         backdrop-filter: blur(14px) saturate(120%);
         -webkit-backdrop-filter: blur(14px) saturate(120%);
         border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -1075,6 +1075,14 @@
         color: var(--dim);
         line-height: 1.6;
       }
+      .market-chart {
+        margin-top: 20px;
+        border: 1px solid var(--line);
+        overflow: hidden;
+      }
+      .market-chart .tradingview-widget-container {
+        background: #161d27;
+      }
       @media (max-width: 640px) {
         .market-card {
           padding: 20px 18px 16px;
@@ -1161,8 +1169,8 @@
         font-size: 220px;
         line-height: 0.9;
         color: transparent;
-        -webkit-text-stroke: 1px rgba(37, 47, 61, 0.06);
-        text-stroke: 1px rgba(37, 47, 61, 0.06);
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+        text-stroke: 1px rgba(255, 255, 255, 0.05);
         letter-spacing: -0.04em;
         pointer-events: none;
         transition:
@@ -1594,6 +1602,13 @@
                     <span class="label">CIK</span>
                     <span class="value">0001869601</span>
                   </div>
+                </div>
+              </div>
+
+              <!-- TradingView Chart -->
+              <div class="market-chart reveal">
+                <div class="tradingview-widget-container">
+                  <div id="tradingview_emcg" style="height: 420px"></div>
                 </div>
               </div>
 
@@ -2053,6 +2068,56 @@
           io.observe(el);
         });
       })();
+    </script>
+
+    <!-- TradingView Chart Widget -->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+    (function() {
+      if (!("IntersectionObserver" in window)) {
+        initChart();
+        return;
+      }
+      var container = document.getElementById('tradingview_emcg');
+      if (!container) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            initChart();
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      io.observe(container);
+      function initChart() {
+        if (window._tvInited) return;
+        window._tvInited = true;
+        new TradingView.widget({
+          "container_id": "tradingview_emcg",
+          "symbol": "NASDAQ:EMCG",
+          "interval": "D",
+          "timezone": "America/New_York",
+          "theme": "dark",
+          "style": "1",
+          "locale": "en",
+          "toolbar_bg": "#161d27",
+          "enable_publishing": false,
+          "allow_symbol_change": false,
+          "hide_top_toolbar": false,
+          "hide_side_toolbar": true,
+          "save_image": false,
+          "width": "100%",
+          "height": 420,
+          "studies": [],
+          "backgroundColor": "#161d27",
+          "gridColor": "#495059",
+          "volumeDownColor": "#b86b52",
+          "volumeUpColor": "#6a9fcc",
+          "upColor": "#6a9fcc",
+          "downColor": "#b86b52"
+        });
+      }
+    })();
     </script>
   </body>
 </html>
