@@ -263,6 +263,7 @@
         font-weight: 400;
         font-size: 13px;
         letter-spacing: 0.02em;
+        white-space: nowrap;
       }
       .brand-mark {
         color: var(--accent-2);
@@ -331,11 +332,14 @@
         background: var(--accent-2);
       }
 
-      @media (max-width: 720px) {
-        .status .label-long {
+      /* Hide in-page anchor links before they crowd the full brand name */
+      @media (max-width: 1024px) {
+        .nav-link.optional {
           display: none;
         }
-        .nav-link.optional {
+      }
+      @media (max-width: 720px) {
+        .status .label-long {
           display: none;
         }
       }
@@ -862,6 +866,7 @@
         letter-spacing: -0.015em;
         color: var(--ink);
         font-weight: 600;
+        white-space: nowrap;
       }
       .proof-value .muted {
         color: var(--faint);
@@ -2709,7 +2714,7 @@
               <div class="market-quotes">
                 <a
                   class="market-quote-btn"
-                  href="https://finance.yahoo.com/quote/EMCG/"
+                  href="https://finance.yahoo.com/quote/EMCGF/"
                   target="_blank"
                   rel="noopener"
                 >
@@ -2720,7 +2725,7 @@
                 </a>
                 <a
                   class="market-quote-btn"
-                  href="https://www.google.com/finance/quote/EMCG:NASDAQ"
+                  href="https://www.google.com/finance/quote/EMCGF:OTCMKTS"
                   target="_blank"
                   rel="noopener"
                 >
@@ -2731,13 +2736,13 @@
                 </a>
                 <a
                   class="market-quote-btn"
-                  href="https://www.nasdaq.com/market-activity/stocks/emcg"
+                  href="https://www.otcmarkets.com/stock/EMCGF/overview"
                   target="_blank"
                   rel="noopener"
                 >
-                  <span class="label">Listing</span>
+                  <span class="label">Quote</span>
                   <span class="title">
-                    NASDAQ <span class="arrow">↗</span>
+                    OTC Markets <span class="arrow">↗</span>
                   </span>
                 </a>
               </div>
@@ -3301,6 +3306,7 @@
         var existing = document.querySelector('script[data-tv-widget="true"]');
         if (existing) {
           existing.addEventListener("load", callback, { once: true });
+          existing.addEventListener("error", showPlaceholderFallback, { once: true });
           return;
         }
         var script = document.createElement("script");
@@ -3308,6 +3314,9 @@
         script.async = true;
         script.dataset.tvWidget = "true";
         script.onload = callback;
+        // If the TradingView script is blocked or fails to load, the onload
+        // callback never fires — fall back instead of spinning forever.
+        script.onerror = showPlaceholderFallback;
         document.head.appendChild(script);
       }
 
@@ -3325,6 +3334,11 @@
       function initChart() {
         if (window._tvInited) return;
         window._tvInited = true;
+        // Catch-all: whatever the failure mode (script hang, blocked request,
+        // widget silently not mounting), never leave the placeholder spinning.
+        setTimeout(function () {
+          if (!container.querySelector("iframe")) showPlaceholderFallback();
+        }, 6000);
         loadTradingView(function() {
           if (!window.TradingView) {
             showPlaceholderFallback();
@@ -3333,7 +3347,7 @@
           try {
             new TradingView.widget({
               "container_id": "tradingview_emcg",
-              "symbol": "NASDAQ:EMCG",
+              "symbol": "OTC:EMCGF",
               "interval": "D",
               "timezone": "America/New_York",
               "theme": "light",
